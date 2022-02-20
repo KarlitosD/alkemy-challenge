@@ -1,5 +1,4 @@
 import { Sequelize } from "sequelize"
-import { Express } from "express"
 import { config } from "dotenv"
 config()
 // console.log(process.env.URI_DATABASE_LOCAL)
