@@ -4,6 +4,8 @@ import db from "../db/connection"
 class User extends Model{
    declare id : string
    declare name : string
+   declare email: string
+   declare password: string
 }
 
 User.init({
@@ -24,7 +26,7 @@ User.init({
       unique:true,
    },
    password:{
-      type:DataTypes.STRING(1000),
+      type:DataTypes.STRING,
       allowNull:false
    },
    

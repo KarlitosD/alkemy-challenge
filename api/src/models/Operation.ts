@@ -1,6 +1,5 @@
 import { DataTypes, Model, UUIDV4 } from "sequelize"
 import db from "../db/connection"
-import User from "../models/User"
 
 class Operation extends Model{
    declare id : string
