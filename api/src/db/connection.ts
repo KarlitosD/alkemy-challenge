@@ -1,10 +1,8 @@
 import { Sequelize } from "sequelize"
-import { config } from "dotenv"
-config()
-// console.log(process.env.URI_DATABASE_LOCAL)
-const db = new Sequelize(process.env.URI_DATABASE_LOCAL as string,{
+import CONFIG from "../config/index"
+
+const db = new Sequelize(CONFIG.DB_URI,{
    logging:false
 })
-
 
 export default db
