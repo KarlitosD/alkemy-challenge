@@ -3,24 +3,27 @@ import User from "../models/User"
 import { comparePassword, hashPassword } from "../utils/brcrypt"
 import CONFIG from "../config/index"
 import jwt from "jsonwebtoken"
+import { nextTick } from "process"
+import createError from "../utils/createError"
 
 const router = Router()
 
-router.get("/:id", async (req: Request, res: Response) => {
+router.get("/:id", async (req: Request, res: Response, next) => {
     try {
         const { params: { id } } = req
         const user = await User.findByPk(id, {
             attributes: ["id", "name", "email", "createdAt"]
         })
+
+        if(!user) throw createError(404, "User not found")
+
         res.send(user)
     } catch (error) {
-        res.status(500).send({
-            message: "Algo salio mal"
-        })
+        next(error)
     }
 })
 
-router.post("/register", async (req: Request, res: Response) => {
+router.post("/register", async (req: Request, res: Response, next) => {
     try {
         const { body: { username, password, email } } = req
         const { id, name } = await User.create({
@@ -35,9 +38,7 @@ router.post("/register", async (req: Request, res: Response) => {
             token
         })
     } catch (error) {
-        res.status(500).send({
-            message: "Algo salio mal"
-        })
+        next(error)
     }
 })
 
@@ -46,8 +47,8 @@ router.post("/login", async (req: Request, res: Response) => {
     try {
         const user = await User.findOne({ where:{ email }})
         
-        if(!user) throw new Error("User no exist")
-        if(!(await comparePassword(passwordHash, user.password))) throw new Error("Password incorrect")
+        if(!user) throw createError(404, "User not exist")
+        if(!(await comparePassword(passwordHash, user.password))) throw createError(401, "Incorrect password")
         
         const objectToken = {
             username: user.name,
