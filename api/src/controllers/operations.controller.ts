@@ -24,7 +24,7 @@ const createOperation = async (req: Request, res: Response, next: NextFunction) 
        const { id: UserId, concept, amount, type, category } = body 
        const opeartion = await Operation.create({
            concept,
-           typeOperation: type,
+           type,
            amount,
            category,
            UserId,

@@ -25,7 +25,7 @@ Operation.init({
       type:DataTypes.INTEGER,
       allowNull:true,
    },
-   typeOperation:{
+   type:{
       type:DataTypes.STRING,
       allowNull:false,
       field: "type"
@@ -37,6 +37,7 @@ Operation.init({
 },{
    sequelize:db,
    tableName:"Operations",
+   updatedAt:false
 })
 
 export default Operation
