@@ -8,7 +8,7 @@ const getOperations = async (req: Request, res: Response, next: NextFunction) =>
        const { params, query } = req
        const limit = query?.limit as string || 100
        const operations = await Operation.findAll({
-           attributes: ["id", "concept", "amount", "typeOperation", "category", "createdAt"],
+           attributes: ["id", "concept", "amount", "type", "category", "createdAt"],
            where: { UserId: params.userId },
            limit: +limit
        })
