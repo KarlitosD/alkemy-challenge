@@ -24,7 +24,6 @@ Operation.init({
    amount:{
       type:DataTypes.INTEGER,
       allowNull:true,
-      unique:true,
    },
    typeOperation:{
       type:DataTypes.STRING,
