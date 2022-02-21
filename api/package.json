@@ -7,7 +7,7 @@
         "dev": "concurrently \"tsc --watch\" \"nodemon ./dist/index.js\"",
         "build": "tsc",
         "start": "node ./dist/index.js",
-        "db": "docker-compose up -d"
+        "dev:db": "docker-compose up -d"
     },
     "keywords": [],
     "author": "",
