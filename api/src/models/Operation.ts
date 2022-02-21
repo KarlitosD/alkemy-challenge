@@ -30,6 +30,10 @@ Operation.init({
       type:DataTypes.STRING,
       allowNull:false,
       field: "type"
+   },
+   category:{
+      type: DataTypes.STRING,
+      defaultValue: "none"
    }
 },{
    sequelize:db,
