@@ -1,0 +1,29 @@
+GET http://localhost:3000/api/operations/2415dc1e-2ad3-4904-bc56-7bd1aed781b3
+
+###
+GET http://localhost:3000/api/operations/2415dc1e-2ad3-4904-bc56-7bd1aed781b3?limit=5
+
+
+###
+POST http://localhost:3000/api/operations/
+Content-Type: application/json
+
+{
+   "id": "2415dc1e-2ad3-4904-bc56-7bd1aed781b3",
+   "concept": "Preste plata a dani 2",
+   "amount": 750,
+   "type": "exit",
+   "category": "Music"
+}
+
+###
+PATCH http://localhost:3000/api/operations/aebcd348-f94f-47d6-9470-e9f10720b006
+Content-Type: application/json
+
+{
+   "category": "Platita"
+}
+
+###
+DELETE http://localhost:3000/api/operations/e2d273e5-841e-4378-b2b4-d8e07e4f893a
+Content-Type: application/json
