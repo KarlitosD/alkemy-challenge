@@ -5,6 +5,8 @@ import createError from "../utils/createError"
 
 const router = Router()
 
+router.use(authorizationToken)
+
 router.get("/:userId", async (req: Request, res: Response, next) => {
     try {
         const { params, query } = req
@@ -20,7 +22,7 @@ router.get("/:userId", async (req: Request, res: Response, next) => {
     }
 })
 
-router.post("/" ,async (req: Request, res: Response, next) => {
+router.post("/", async (req: Request, res: Response, next) => {
     try {
         const { body } = req
         const { id: UserId, concept, amount, type, category } = body 

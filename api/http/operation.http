@@ -1,12 +1,14 @@
 GET http://localhost:3000/api/operations/2415dc1e-2ad3-4904-bc56-7bd1aed781b3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhLWQ5MDUtNGZmNy04YWJjLTQzOWYzMTI4ZTIyZSIsIm5hbWUiOiJDYXJsb3MiLCJpYXQiOjE2NDU0MTQ2NDcsImV4cCI6MTY0NjAxOTQ0N30.nAjmNe1clYqR3hy6-TLtAHzjyMIc0-f-gq7fLArHiNo
 
 ###
 GET http://localhost:3000/api/operations/2415dc1e-2ad3-4904-bc56-7bd1aed781b3?limit=5
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhLWQ5MDUtNGZmNy04YWJjLTQzOWYzMTI4ZTIyZSIsIm5hbWUiOiJDYXJsb3MiLCJpYXQiOjE2NDU0MTQ2NDcsImV4cCI6MTY0NjAxOTQ0N30.nAjmNe1clYqR3hy6-TLtAHzjyMIc0-f-gq7fLArHiNo
 
 ###
 POST http://localhost:3000/api/operations/
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhLWQ5MDUtNGZmNy04YWJjLTQzOWYzMTI4ZTIyZSIsIm5hbWUiOiJDYXJsb3MiLCJpYXQiOjE2NDU0MTQ2NDcsImV4cCI6MTY0NjAxOTQ0N30.nAjmNe1clYqR3hy6-TLtAHzjyMIc0-f-gq7fLArHiNo
 
 {
    "id": "2415dc1e-2ad3-4904-bc56-7bd1aed781b3",
@@ -19,6 +21,7 @@ Content-Type: application/json
 ###
 PATCH http://localhost:3000/api/operations/aebcd348-f94f-47d6-9470-e9f10720b006
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhLWQ5MDUtNGZmNy04YWJjLTQzOWYzMTI4ZTIyZSIsIm5hbWUiOiJDYXJsb3MiLCJpYXQiOjE2NDU0MTQ2NDcsImV4cCI6MTY0NjAxOTQ0N30.nAjmNe1clYqR3hy6-TLtAHzjyMIc0-f-gq7fLArHiNo
 
 {
    "category": "Platita"
@@ -27,3 +30,4 @@ Content-Type: application/json
 ###
 DELETE http://localhost:3000/api/operations/e2d273e5-841e-4378-b2b4-d8e07e4f893a
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhLWQ5MDUtNGZmNy04YWJjLTQzOWYzMTI4ZTIyZSIsIm5hbWUiOiJDYXJsb3MiLCJpYXQiOjE2NDU0MTQ2NDcsImV4cCI6MTY0NjAxOTQ0N30.nAjmNe1clYqR3hy6-TLtAHzjyMIc0-f-gq7fLArHiNo
