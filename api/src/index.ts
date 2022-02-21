@@ -1,5 +1,6 @@
 import express, { json, urlencoded } from "express"
 import cors from "cors"
+import helmet from "helmet"
 
 import router from "./routes/index.router"
 import db from "./db/connection"
@@ -12,6 +13,7 @@ const app = express()
 app.use(json())
 app.use(urlencoded({ extended:true }))
 app.use(cors())
+app.use(helmet())
 
 app.use("/api", router)
 app.use(errorHandler)
@@ -21,4 +23,4 @@ db.sync({force:true}).then(() => {
     app.listen(3000, () =>{
         console.log("Server and database started")
     })
-}).catch(error => console.log(error))
+}).catch(error => console.log("A error ocurred :("))
