@@ -3,7 +3,6 @@ import User from "../models/User"
 import { comparePassword, hashPassword } from "../utils/brcrypt"
 import CONFIG from "../config/index"
 import jwt from "jsonwebtoken"
-import { nextTick } from "process"
 import createError from "../utils/createError"
 
 const router = Router()
@@ -31,7 +30,9 @@ router.post("/register", async (req: Request, res: Response, next) => {
             email,
             password: await hashPassword(password)
         })
-        const token = jwt.sign({ id, name }, CONFIG.SECRET)
+        const token: string = jwt.sign({ id, name }, CONFIG.SECRET, {
+            expiresIn: "7d"
+        })
         res.send({
             username:name,
             id,
@@ -42,7 +43,7 @@ router.post("/register", async (req: Request, res: Response, next) => {
     }
 })
 
-router.post("/login", async (req: Request, res: Response) => {
+router.post("/login", async (req: Request, res: Response, next) => {
     const { body: { email, password: passwordHash } } = req
     try {
         const user = await User.findOne({ where:{ email }})
@@ -50,19 +51,20 @@ router.post("/login", async (req: Request, res: Response) => {
         if(!user) throw createError(404, "User not exist")
         if(!(await comparePassword(passwordHash, user.password))) throw createError(401, "Incorrect password")
         
-        const objectToken = {
+        const userForToken = {
             username: user.name,
             id: user.id
         }
-        const token = jwt.sign(objectToken, CONFIG.SECRET)
+        const token: string = jwt.sign(userForToken, CONFIG.SECRET,{
+            expiresIn: "7d"
+        })
         
         res.send({
-            ...objectToken,
+            ...userForToken,
             token
         })
     } catch (error) {
-        const strError = JSON.stringify(error)
-        res.status(500).send("no uwu")
+        next(error)
     }
 })
 
