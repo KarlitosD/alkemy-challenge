@@ -1,13 +1,13 @@
-export class HttpError extends Error{
-   public status: number
-   public message: string
-   public isCustomError: boolean
-   constructor(statusCode: number, errorMessage: string){
-      super(errorMessage)
-      this.status = statusCode
-      this.message = errorMessage
-      this.isCustomError = true
-   }
+export class HttpError extends Error {
+	public status: number
+	public message: string
+	public isCustomError: boolean
+	constructor(statusCode: number, errorMessage: string) {
+		super(errorMessage)
+		this.status = statusCode
+		this.message = errorMessage
+		this.isCustomError = true
+	}
 }
 
 

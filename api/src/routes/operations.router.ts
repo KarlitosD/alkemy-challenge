@@ -2,10 +2,10 @@ import { Router } from "express"
 
 import authorizationToken from "../middlewares/authorizationToken"
 import {
-    getOperations,
-    createOperation,
-    updateOperation,
-    deleteOperation
+	getOperations,
+	createOperation,
+	updateOperation,
+	deleteOperation
 } from "../controllers/operations.controller"
 
 const router = Router()

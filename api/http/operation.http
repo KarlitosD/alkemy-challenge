@@ -19,7 +19,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhL
 }
 
 ###
-PATCH http://localhost:3000/api/operations/aebcd348-f94f-47d6-9470-e9f10720b006
+PATCH http://localhost:3000/api/operations/ff141684-612d-4e9c-aad6-729ca1342e3e
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhLWQ5MDUtNGZmNy04YWJjLTQzOWYzMTI4ZTIyZSIsIm5hbWUiOiJDYXJsb3MiLCJpYXQiOjE2NDU0MTQ2NDcsImV4cCI6MTY0NjAxOTQ0N30.nAjmNe1clYqR3hy6-TLtAHzjyMIc0-f-gq7fLArHiNo
 
@@ -28,6 +28,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhL
 }
 
 ###
-DELETE http://localhost:3000/api/operations/e2d273e5-841e-4378-b2b4-d8e07e4f893a
+DELETE http://localhost:3000/api/operations/0e90a550-517b-4e85-81ca-37abeb9796b5
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhLWQ5MDUtNGZmNy04YWJjLTQzOWYzMTI4ZTIyZSIsIm5hbWUiOiJDYXJsb3MiLCJpYXQiOjE2NDU0MTQ2NDcsImV4cCI6MTY0NjAxOTQ0N30.nAjmNe1clYqR3hy6-TLtAHzjyMIc0-f-gq7fLArHiNo
