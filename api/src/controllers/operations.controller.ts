@@ -21,7 +21,8 @@ const getOperations = async (req: Request, res: Response, next: NextFunction) =>
 const createOperation = async (req: Request, res: Response, next: NextFunction) => {
 	try {
 		const { body } = req
-		const { id: UserId, concept, amount, type, category } = body
+		const UserId = req.userId
+		const { concept, amount, type, category } = body
 		const opeartion = await Operation.create({
 			concept,
 			type,
@@ -40,7 +41,12 @@ const updateOperation = async (req: Request, res: Response, next: NextFunction) 
 		const { body, params } = req
 		const opeartion = await Operation.findByPk(params.operationId)
 		if (!opeartion) throw createError(404, "Operation no exist")
-		opeartion.update({ ...body })
+		const { concept, amount, category } = body
+		opeartion.update({
+			concept: concept || opeartion.concept,
+			amount: amount || opeartion.amount,
+			category: category || opeartion.category
+		})
 		res.status(202).send(opeartion)
 	} catch (error) {
 		next(error)

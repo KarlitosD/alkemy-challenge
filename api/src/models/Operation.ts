@@ -7,6 +7,7 @@ class Operation extends Model {
 	declare amount: number
 	declare typeOperation: string
 	declare userId: string
+	declare category: string
 }
 
 Operation.init({
