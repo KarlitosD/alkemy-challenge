@@ -1,14 +1,14 @@
-POST http://localhost:3000/api/auth/register
+POST http://localhost:4000/api/auth/register
 Content-Type: application/json
 
 {
    "username": "Carlos",
-   "email": "carlosdcampos10.04@gmail.com",
+   "email": "carlosdcampos01.04@gmail.com",
    "password": "test123"
 }
 
 ####
-POST http://localhost:3000/api/auth/login
+POST http://localhost:4000/api/auth/login
 Content-Type: application/json
 
 {
@@ -17,4 +17,4 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/api/user/0995683d-4df8-42b9-a6e6-7ef8f7ba1516
+GET http://localhost:4000/api/user/0995683d-4df8-42b9-a6e6-7ef8f7ba1516
