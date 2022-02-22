@@ -23,6 +23,6 @@ db.sync({ force: false }).then(() => {
 		console.log("Server and database started")
 	})
 }).catch(({ message }) => console.log({
-	tittle: "A error ocurred :(",
+	tittle: "An error has occurred :(",
 	message
 }))
