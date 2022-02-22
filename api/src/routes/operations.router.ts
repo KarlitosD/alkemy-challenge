@@ -12,7 +12,7 @@ const router = Router()
 
 router.use(authorizationToken)
 
-router.get("/:userId", getOperations)
+router.get("/", getOperations)
 
 router.post("/", createOperation)
 

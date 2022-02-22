@@ -5,11 +5,11 @@ import createError from "../utils/createError"
 
 const getOperations = async (req: Request, res: Response, next: NextFunction) => {
 	try {
-		const { params, query } = req
+		const { query } = req
 		const limit = query?.limit as string || 100
 		const operations = await Operation.findAll({
 			attributes: ["id", "concept", "amount", "type", "category", "createdAt"],
-			where: { UserId: params.userId },
+			where: { UserId: req.userId },
 			limit: +limit
 		})
 		res.status(200).send(operations)
