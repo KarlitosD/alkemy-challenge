@@ -2,6 +2,8 @@ import express, { json, urlencoded } from "express"
 import cors from "cors"
 import helmet from "helmet"
 
+import CONFIG from "./config/index"
+
 import router from "./routes/index.router"
 import db from "./db/connection"
 import "./db/associations"
@@ -19,7 +21,7 @@ app.use("/api", router)
 app.use(errorHandler)
 
 db.sync({ force: false }).then(() => {
-	app.listen(3000, () => {
+	app.listen(CONFIG.PORT, () => {
 		console.log("Server and database started")
 	})
 }).catch(({ message }) => console.log({
