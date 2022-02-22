@@ -1,6 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react"
-import { setCookies } from "../utils/cookies.js"
-
+import { setCookies, getCookie } from "../utils/cookies.js"
 
 export const TokenContext = createContext(null)
 
@@ -8,7 +7,7 @@ const TokenProvider = ({ children }) => {
 	const [token, setToken] = useState("")
 
 	useEffect(() => {
-		const cookie = document.cookie.split("=")[1]
+		const cookie = getCookie("token")
 		setToken(cookie)
 	}, [])
 
