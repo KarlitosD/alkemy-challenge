@@ -8,7 +8,8 @@ const TokenProvider = ({ children }) => {
 	const [token, setToken] = useState("")
 
 	useEffect(() => {
-		console.log(document.cookie)
+		const cookie = document.cookie.split("=")[1]
+		setToken(cookie)
 	}, [])
 
 	const saveToken = tokenString => {
@@ -16,7 +17,7 @@ const TokenProvider = ({ children }) => {
 		setToken(tokenString)
 	}
 	return (
-		<TokenContext.Provider value={token, saveToken}>
+		<TokenContext.Provider value={{ saveToken, token }}>
 			{children}
 		</TokenContext.Provider>
 	)
