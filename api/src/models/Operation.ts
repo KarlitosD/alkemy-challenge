@@ -5,6 +5,7 @@ class Operation extends Model {
 	declare id: string
 	declare concept: string
 	declare amount: number
+	declare date: Date
 	declare typeOperation: string
 	declare userId: string
 	declare category: string
@@ -24,6 +25,10 @@ Operation.init({
 	},
 	amount: {
 		type: DataTypes.INTEGER,
+		allowNull: true,
+	},
+	date: {
+		type: DataTypes.DATE,
 		allowNull: true,
 	},
 	type: {
