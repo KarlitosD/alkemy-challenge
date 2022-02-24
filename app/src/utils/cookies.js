@@ -7,5 +7,5 @@ export const getCookie = keyCookie => {
 	return document.cookie
 		.split(";")
 		.find(cookie => cookie.includes(keyCookie + "="))
-		.split("=")[1]
+		?.split("=")[1]
 }
