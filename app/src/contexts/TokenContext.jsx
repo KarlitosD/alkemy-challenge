@@ -12,7 +12,7 @@ const TokenProvider = ({ children }) => {
 	}, [])
 
 	const saveToken = tokenString => {
-		setCookies({ token: "Bearer " + token }, 60 * 60 * 24 * 7)
+		setCookies({ token: "Bearer " + tokenString }, 60 * 60 * 24 * 7)
 		setToken(tokenString)
 	}
 	return (
