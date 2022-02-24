@@ -1,10 +1,14 @@
 import React from "react"
+import { Redirect } from "wouter"
 import { Tab } from "@headlessui/react"
 import clsx from "clsx"
 
+import { useToken } from "../contexts/TokenContext"
 import FormSign from "../components/FormSign"
 
 const Sign = () => {
+	const { token } = useToken()
+
 	const forms = {
 		Login: [
 			{
@@ -41,6 +45,8 @@ const Sign = () => {
 			},
 		]
 	}
+
+	if (token) return <Redirect to="/home" />
 
 	return (
 		<div className="max-w-md w-full py-16 px-2 text-dark-900 sm:px-0">
