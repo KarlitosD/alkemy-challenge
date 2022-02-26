@@ -1,7 +1,7 @@
 import React from "react"
 import { Redirect } from "wouter"
 import { Tab } from "@headlessui/react"
-import clsx from "clsx"
+import clsx from "../utils/clsx"
 
 import { useToken } from "../contexts/TokenContext"
 import FormSign from "../components/FormSign"
