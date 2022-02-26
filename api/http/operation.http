@@ -1,9 +1,9 @@
-GET http://localhost:4000/api/operations/2415dc1e-2ad3-4904-bc56-7bd1aed781b3
+GET http://localhost:4000/api/operations/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhLWQ5MDUtNGZmNy04YWJjLTQzOWYzMTI4ZTIyZSIsIm5hbWUiOiJDYXJsb3MiLCJpYXQiOjE2NDU0MTQ2NDcsImV4cCI6MTY0NjAxOTQ0N30.nAjmNe1clYqR3hy6-TLtAHzjyMIc0-f-gq7fLArHiNo
 
 ###
-GET http://localhost:4000/api/operations/2415dc1e-2ad3-4904-bc56-7bd1aed781b3?limit=5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhLWQ5MDUtNGZmNy04YWJjLTQzOWYzMTI4ZTIyZSIsIm5hbWUiOiJDYXJsb3MiLCJpYXQiOjE2NDU0MTQ2NDcsImV4cCI6MTY0NjAxOTQ0N30.nAjmNe1clYqR3hy6-TLtAHzjyMIc0-f-gq7fLArHiNo
+GET http://localhost:4000/api/operations/?limit=5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhY2EiLCJpZCI6ImM3ZmMzNThhLTkzYjAtNGFkYS1hZWIxLTQxYWM0NGY1OWMwOSIsImlhdCI6MTY0NTU3NDU4NywiZXhwIjoxNjQ2MTc5Mzg3fQ.Fd-AbxiUZqxQ6PBskif8gorJx_RuQdNfnnq65Dazer8
 
 ###
 POST http://localhost:4000/api/operations/

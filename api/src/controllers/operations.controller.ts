@@ -22,14 +22,16 @@ const createOperation = async (req: Request, res: Response, next: NextFunction) 
 	try {
 		const { body } = req
 		const UserId = req.userId
-		const { concept, amount, type, category } = body
+		const { concept, amount, type, category, date } = body
 		const opeartion = await Operation.create({
 			concept,
 			type,
 			amount,
 			category,
 			UserId,
+			date
 		})
+
 		res.status(201).send(opeartion)
 	} catch (error) {
 		next(error)

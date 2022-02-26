@@ -28,7 +28,7 @@ Operation.init({
 		allowNull: true,
 	},
 	date: {
-		type: DataTypes.DATE,
+		type: DataTypes.DATEONLY,
 		allowNull: true,
 	},
 	type: {
