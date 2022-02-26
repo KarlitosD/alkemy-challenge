@@ -10,6 +10,7 @@ ReactDOM.render(
 	<React.StrictMode>
 		<TokenProvider>
 			<App />
+
 		</TokenProvider>
 	</React.StrictMode>,
 	document.getElementById("root")
