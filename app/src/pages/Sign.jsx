@@ -3,7 +3,7 @@ import { Redirect } from "wouter"
 import { Tab } from "@headlessui/react"
 import clsx from "../utils/clsx"
 
-import { useToken } from "../contexts/TokenContext"
+import useToken from "../hooks/useToken"
 import FormSign from "../components/FormSign"
 
 const Sign = () => {

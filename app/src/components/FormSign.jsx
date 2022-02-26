@@ -1,7 +1,7 @@
 import React from "react"
 import { useForm } from "react-hook-form"
 
-import { useToken } from "../contexts/TokenContext"
+import useToken from "../hooks/useToken"
 
 const REGEX_EMAIL = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
 

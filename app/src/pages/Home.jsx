@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import { Redirect } from "wouter"
-import { useToken } from "../hooks/useToken"
+import useToken from "../hooks/useToken"
 import NewOperationModal from "../components/NewOperationModal"
 
 const Home = () => {
-	const [isOpenModal, setIsOpenModal] = useState(true)
+	const [isOpenModal, setIsOpenModal] = useState(false)
 	const { token } = useToken()
 
 	if (!token) return <Redirect to="/sign" />
