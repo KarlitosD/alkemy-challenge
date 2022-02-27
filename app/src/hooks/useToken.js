@@ -1,15 +1,14 @@
-import { useState } from "react"
-
+import useSWR from "swr"
 import { setCookies, getCookie } from "../utils/cookies.js"
 
 export default () => {
-	const cookie = getCookie("token")
-	const [token, setToken] = useState(cookie)
-
+	const { data: token, mutate } = useSWR("token", key => getCookie(key))
 
 	const saveToken = tokenString => {
+
 		setCookies({ token: "Bearer " + tokenString }, 60 * 60 * 24 * 7)
-		setToken(tokenString)
+		mutate("Bearer " + tokenString)
 	}
+
 	return { token, saveToken }
 }
