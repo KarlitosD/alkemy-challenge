@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react"
+import React, { createContext, useContext, useMemo } from "react"
 import useSWR from "swr"
 
 import useToken from "../hooks/useToken"
@@ -19,9 +19,16 @@ const OperationsProvider = ({ children }) => {
 		}
 	}], fetcher)
 
+	const totalAmount = useMemo(() => {
+		if (!token) return 0
+		return operations?.reduce((acc, { amount, type }) => {
+			return acc + amount * (type === "exit" ? -1 : 1)
+		}, 0)
+	}, [operations])
+
 	const addOperation = async ({ enabled, data }) => {
-		return mutate(async () => {
-			const newOperation = await fetch("http://localhost:4000/api/operations/", {
+		mutate(async () => {
+			const newOperation = await fetcher("http://localhost:4000/api/operations/", {
 				method: "POST",
 				mode: "cors",
 				headers: {
@@ -32,16 +39,14 @@ const OperationsProvider = ({ children }) => {
 					...data,
 					type: enabled ? "exit" : "income"
 				})
-			}).then(res => res.json())
+			})
 
 			return [...operations, newOperation]
 		})
-
 	}
 
-
 	return (
-		<OperationsContext.Provider value={{ operations, addOperation }}>
+		<OperationsContext.Provider value={{ operations, addOperation, totalAmount }}>
 			{children}
 		</OperationsContext.Provider>
 	)
