@@ -4,15 +4,33 @@ import { useForm } from "react-hook-form"
 import { useOperation } from "../contexts/OperationsContext"
 import clsx from "../utils/clsx"
 
+const CATEGORIES = [
+	"Restaurante",
+	"Supermercado",
+	"Cajeros",
+	"Servicios",
+	"Cuidado personal",
+	"Viajes",
+	"Ropa",
+	"Entretenimiento",
+	"Bares",
+	"Transporte",
+	"Mascotas",
+	"Amigos",
+	"Familia",
+	"Hijos",
+	"Otros"
+]
+
 function NewOperationModal({ isOpenModal, setIsOpenModal }) {
 	const [enabled, setEnabled] = useState(false)
-	const { handleSubmit, register } = useForm()
+	const { handleSubmit, register, reset } = useForm()
 
 	const { addOperation } = useOperation()
 
-
 	const onSubmit = async data => {
-		console.log(await addOperation({ enabled, data }))
+		await addOperation({ data, enabled })
+		reset()
 		setIsOpenModal(false)
 	}
 	return (
@@ -28,11 +46,15 @@ function NewOperationModal({ isOpenModal, setIsOpenModal }) {
 					<Dialog.Title>Agrega una operacion</Dialog.Title>
 
 					<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center">
-						<input type="text" className="rounded h-8 my-2" {...register("concept", { required: true })} />
-						<input type="number" className="rounded h-8 my-2"  {...register("amount", { required: true })} />
+						<input type="text" className="rounded h-8 my-2 w-53" {...register("concept", { required: true })} />
+						<input type="number" className="rounded h-8 my-2 w-53"  {...register("amount", { required: true })} />
 						<input type="date" className="rounded h-8 my-2 w-53" {...register("date", { required: true })} />
-						<input type="text" className="rounded h-8 my-2"  {...register("category", { required: true })} />
-
+						<select className="rounded h-8 my-2 px-3 w-53"  {...register("category", { required: true })} >
+							<option value="Ninguna" hidden>Categoria</option>
+							{CATEGORIES.map(CATEGORY => (
+								<option value={CATEGORY} key={CATEGORY}>{CATEGORY}</option>
+							))}
+						</select>
 						<Switch.Group as="div" className="flex items-center">
 							<Switch.Label className="mr-2">Ingreso</Switch.Label>
 							<Switch
