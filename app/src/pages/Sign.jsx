@@ -49,8 +49,8 @@ const Sign = () => {
 	if (token) return <Redirect to="/home" />
 
 	return (
-		<div className="max-w-md w-full py-16 px-2 text-dark-900 sm:px-0">
-			<Tab.Group>
+		<div className="flex h-full items-center justify-center">
+			<Tab.Group as="div" className="max-w-md w-full py-16 px-2 text-dark-900 sm:px-0">
 				<Tab.List className="rounded-xl flex space-x-1 bg-blue-900/20 p-1">
 					{Object.keys(forms).map((form) => (
 						<Tab
@@ -70,7 +70,7 @@ const Sign = () => {
 					))}
 				</Tab.List>
 				<Tab.Panels className="mt-2">
-					{Object.entries(forms).map(([hola, inputs], idx) => (
+					{Object.entries(forms).map(([key, inputs], idx) => (
 						<Tab.Panel
 							key={idx}
 							className={clsx(
@@ -78,7 +78,7 @@ const Sign = () => {
 								"focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60"
 							)}
 						>
-							<FormSign inputs={inputs} operation={hola.toLowerCase()} />
+							<FormSign inputs={inputs} operation={key.toLowerCase()} />
 						</Tab.Panel>
 					))}
 				</Tab.Panels>
