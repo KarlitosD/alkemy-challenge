@@ -9,3 +9,7 @@ export const getCookie = keyCookie => {
 		.find(cookie => cookie.includes(keyCookie + "="))
 		?.split("=")[1]
 }
+
+export const deleteCookie = keyCookie => {
+	document.cookie = keyCookie + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;"
+}
