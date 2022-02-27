@@ -5,12 +5,12 @@ import createError from "../utils/createError"
 
 const getOperations = async (req: Request, res: Response, next: NextFunction) => {
 	try {
-		const { query } = req
-		const limit = query?.limit as string || 100
+		// const { query } = req
+		// const limit = query?.limit as string || 100
 		const operations = await Operation.findAll({
-			attributes: ["id", "concept", "amount", "type", "category", "createdAt"],
+			attributes: ["id", "amount", "concept", "category", "type", "date"],
 			where: { UserId: req.userId },
-			limit: +limit
+			order: [["date", "DESC"]]
 		})
 		res.status(200).send(operations)
 	} catch (error) {
@@ -23,7 +23,7 @@ const createOperation = async (req: Request, res: Response, next: NextFunction) 
 		const { body } = req
 		const UserId = req.userId
 		const { concept, amount, type, category, date } = body
-		const opeartion = await Operation.create({
+		const operation = await Operation.create({
 			concept,
 			type,
 			amount,
@@ -31,8 +31,7 @@ const createOperation = async (req: Request, res: Response, next: NextFunction) 
 			UserId,
 			date
 		})
-
-		res.status(201).send(opeartion)
+		res.status(201).send(operation)
 	} catch (error) {
 		next(error)
 	}
