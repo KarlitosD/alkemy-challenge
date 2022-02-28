@@ -2,6 +2,7 @@ import React from "react"
 import { useForm } from "react-hook-form"
 
 import useToken from "../hooks/useToken"
+import Button from "./Primitives/Button"
 
 const REGEX_EMAIL = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
 
@@ -16,7 +17,7 @@ function FormSign({ inputs, operation }) {
 			body: JSON.stringify(data)
 		})
 		const { token } = await res.json()
-		saveToken(token)
+		token && saveToken(token)
 	}
 
 	return (
@@ -28,7 +29,7 @@ function FormSign({ inputs, operation }) {
 					{errors[input.id] && <p className="mt-2 ml-1 text-red-500">{input.id} invalid</p>}
 				</label>
 			))}
-			<button>Ingresar</button>
+			<Button className="bg-blue-700 mx-2" isDark={true}>Ingresar</Button>
 		</form>
 	)
 }
