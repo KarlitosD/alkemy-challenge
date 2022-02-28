@@ -10,38 +10,38 @@ const Sign = () => {
 	const { token } = useToken()
 
 	const forms = {
-		Login: [
+		"Login": [
 			{
 				key: 1,
 				id: "email",
 				type: "email",
-				placeholder: "Your email",
+				placeholder: "Email",
 			},
 			{
 				key: 2,
 				id: "password",
 				type: "password",
-				placeholder: "Your password",
+				placeholder: "Contraseña",
 			},
 		],
-		Register: [
+		"Register": [
 			{
 				key: 3,
 				id: "username",
 				type: "text",
-				placeholder: "Your username",
+				placeholder: "Nombre de usuario",
 			},
 			{
 				key: 4,
 				id: "email",
 				type: "email",
-				placeholder: "Your email",
+				placeholder: "Email",
 			},
 			{
 				key: 5,
 				id: "password",
 				type: "password",
-				placeholder: "Your password",
+				placeholder: "Contraseña",
 			},
 		]
 	}
@@ -51,17 +51,17 @@ const Sign = () => {
 	return (
 		<div className="flex h-full items-center justify-center">
 			<Tab.Group as="div" className="max-w-md w-full py-16 px-2 text-dark-900 sm:px-0">
-				<Tab.List className="rounded-xl flex space-x-1 bg-blue-900/20 p-1">
+				<Tab.List className="rounded-xl flex space-x-1 bg-white p-1">
 					{Object.keys(forms).map((form) => (
 						<Tab
 							key={form}
 							className={({ selected }) =>
 								clsx(
-									"w-full py-2.5 text-sm leading-5 font-medium text-blue-700 rounded-lg",
-									"focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60",
+									"w-full py-2.5 text-sm leading-5 font-medium text-white rounded-lg",
+									"outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60",
 									selected
-										? "bg-white shadow"
-										: "text-blue-100 hover:bg-white/[0.12] hover:text-white"
+										? "bg-blue-700 shadow"
+										: "text-dark-100 hover:bg-700/[0.12] hover:text-dark-900"
 								)
 							}
 						>
@@ -74,8 +74,8 @@ const Sign = () => {
 						<Tab.Panel
 							key={idx}
 							className={clsx(
-								"bg-white rounded-xl px-3 py-6",
-								"focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60"
+								"bg-white rounded-xl px-3 py-6 flex flex-col justify-center",
+								"focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60 h-80"
 							)}
 						>
 							<FormSign inputs={inputs} operation={key.toLowerCase()} />
