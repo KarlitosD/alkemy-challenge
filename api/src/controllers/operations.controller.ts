@@ -42,10 +42,11 @@ const updateOperation = async (req: Request, res: Response, next: NextFunction) 
 		const { body, params } = req
 		const opeartion = await Operation.findByPk(params.operationId)
 		if (!opeartion) throw createError(404, "Operation no exist")
-		const { concept, amount, category } = body
+		const { concept, amount, category, date } = body
 		opeartion.update({
 			concept: concept || opeartion.concept,
 			amount: amount || opeartion.amount,
+			date: date || opeartion.date,
 			category: category || opeartion.category
 		})
 		res.status(202).send(opeartion)
