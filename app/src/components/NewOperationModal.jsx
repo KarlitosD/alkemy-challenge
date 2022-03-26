@@ -1,26 +1,9 @@
 import React, { useState } from "react"
 import { Dialog, Switch } from "@headlessui/react"
 import { useForm } from "react-hook-form"
+import OptionsCategories from "./OptionsCategories"
 import { useOperation } from "../contexts/OperationsContext"
 import clsx from "../utils/clsx"
-
-const CATEGORIES = [
-	"Restaurante",
-	"Supermercado",
-	"Cajeros",
-	"Servicios",
-	"Cuidado personal",
-	"Viajes",
-	"Ropa",
-	"Entretenimiento",
-	"Bares",
-	"Transporte",
-	"Mascotas",
-	"Amigos",
-	"Familia",
-	"Hijos",
-	"Otros"
-]
 
 function NewOperationModal({ isOpenModal, setIsOpenModal }) {
 	const [enabled, setEnabled] = useState(false)
@@ -42,18 +25,16 @@ function NewOperationModal({ isOpenModal, setIsOpenModal }) {
 			<div className="min-h-screen grid place-content-center">
 				<Dialog.Overlay className="bg-black opacity-60 inset-0 fixed" />
 
-				<div className="bg-white rounded mx-auto max-w-sm px-5 relative">
-					<Dialog.Title>Agrega una operacion</Dialog.Title>
+				<div className="bg-white rounded mx-auto max-w-sm px-5 relative text-dark-200">
+					<Dialog.Title className="font-black">Agrega una operacion</Dialog.Title>
 
 					<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center">
-						<input type="text" className="rounded h-8 my-2 w-53" {...register("concept", { required: true })} />
-						<input type="number" className="rounded h-8 my-2 w-53"  {...register("amount", { required: true })} />
-						<input type="date" className="rounded h-8 my-2 w-53" {...register("date", { required: true })} />
-						<select className="rounded h-8 my-2 px-3 w-53"  {...register("category", { required: true })} >
+						<input type="text" className="rounded h-8 my-2 w-54" {...register("concept", { required: true })} autoComplete="off" />
+						<input type="number" className="rounded h-8 my-2 w-54" min="0" {...register("amount", { required: true })} />
+						<input type="date" className="rounded h-8 my-2 w-54" {...register("date", { required: true })} />
+						<select className="rounded h-8 my-2 px-3 w-54 overflow-y-scroll"  {...register("category", { required: true })} >
 							<option value="Ninguna" hidden>Categoria</option>
-							{CATEGORIES.map(CATEGORY => (
-								<option value={CATEGORY} key={CATEGORY}>{CATEGORY}</option>
-							))}
+							<OptionsCategories />
 						</select>
 						<Switch.Group as="div" className="flex items-center">
 							<Switch.Label className="mr-2">Ingreso</Switch.Label>
@@ -68,7 +49,7 @@ function NewOperationModal({ isOpenModal, setIsOpenModal }) {
 							</Switch>
 							<Switch.Label className="ml-2">Egreso</Switch.Label>
 						</Switch.Group>
-						<button className="rounded bg-blue-700 my-2 mt-4 text-white py-1 px-4 w-11/12">Agregar</button>
+						<button className="rounded bg-blue-700 mt-2 mb-3 mt-4 text-white py-1 px-4 w-11/12">Agregar</button>
 					</form>
 				</div>
 			</div>

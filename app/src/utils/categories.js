@@ -1,0 +1,17 @@
+export const CATEGORIES = [
+	"Restaurante",
+	"Supermercado",
+	"Cajeros",
+	"Servicios",
+	"Cuidado personal",
+	"Viajes",
+	"Ropa",
+	"Entretenimiento",
+	"Bares",
+	"Transporte",
+	"Mascotas",
+	"Amigos",
+	"Familia",
+	"Hijos",
+	"Otros",
+]
