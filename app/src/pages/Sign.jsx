@@ -60,8 +60,8 @@ const Sign = () => {
 									"w-full py-2.5 text-sm leading-5 font-medium text-white rounded-lg",
 									"outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60",
 									selected
-										? "bg-blue-700 shadow"
-										: "text-dark-100 hover:bg-700/[0.12] hover:text-dark-900"
+										? "bg-blue-600 shadow"
+										: "text-dark-100 hover:bg-600/[0.12] hover:text-dark-900"
 								)
 							}
 						>
