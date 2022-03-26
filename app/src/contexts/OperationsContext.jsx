@@ -4,8 +4,12 @@ import useSWR from "swr"
 import useToken from "../hooks/useToken"
 
 const fetcher = (...data) => {
-	const [url, options] = data
-	return fetch(url, { ...options }).then(res => res.json())
+	try {
+		const [url, options] = data
+		return fetch(url, { ...options }).then(res => res.json())
+	} catch (error) {
+		return []
+	}
 }
 
 export const OperationsContext = createContext(null)
@@ -61,7 +65,9 @@ const OperationsProvider = ({ children }) => {
 		const copyOperations = JSON.parse(JSON.stringify(operations))
 		const operationIndex = copyOperations.findIndex(operation => operation.id === id)
 		Object.assign(copyOperations[operationIndex], data)
+		copyOperations.sort((a, b) => new Date(b.date) - new Date(a.date))
 		mutate(copyOperations, { revalidate: false })
+
 		await fetcher(`http://localhost:4000/api/operations/${id}`, {
 			method: "PATCH",
 			mode: "cors",
