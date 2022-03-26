@@ -26,10 +26,10 @@ function FormSign({ inputs, operation }) {
 				<label htmlFor={input.id} key={input.key} className="px-2">
 					<p>{input.placeholder}</p>
 					<input {...register(input.id, { required: true, pattern: input.id === "email" && REGEX_EMAIL })} {...input} className="rounded w-full" />
-					{errors[input.id] && <p className="mt-2 ml-1 text-red-500">{input.id} invalid</p>}
+					{errors[input.id] && <p className="mt-2 ml-1 text-red-500">{input.id} Campo invalido</p>}
 				</label>
 			))}
-			<Button className="bg-blue-700 mx-2" isDark={true}>Ingresar</Button>
+			<Button className="bg-blue-600 mx-2" isDark={true}>Ingresar</Button>
 		</form>
 	)
 }
