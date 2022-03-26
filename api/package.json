@@ -13,7 +13,6 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@hapi/boom": "^9.1.4",
         "@lukeed/uuid": "^2.0.0",
         "bcrypt": "^5.0.1",
         "cors": "^2.8.5",
