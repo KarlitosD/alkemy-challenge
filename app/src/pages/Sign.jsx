@@ -50,7 +50,7 @@ const Sign = () => {
 
 	return (
 		<div className="flex h-full items-center justify-center">
-			<Tab.Group as="div" className="max-w-md w-full py-16 px-2 text-dark-900 sm:px-0">
+			<Tab.Group as="div" className="max-w-md w-full py-16 px-2 text-dark-900 md:px-0">
 				<Tab.List className="rounded-xl flex space-x-1 bg-white p-1">
 					{Object.keys(forms).map((form) => (
 						<Tab

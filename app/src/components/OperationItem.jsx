@@ -3,6 +3,7 @@ import clsx from "../utils/clsx"
 import { formatDate } from "../utils/formatDate"
 import { useOperation } from "../contexts/OperationsContext"
 import { Menu } from "@headlessui/react"
+import { ReactComponent as Dots } from "../assets/icons/three-dots-vertical.svg"
 
 function OperationItem({ operation, setOperationSelected }) {
 	const { deleteOperation } = useOperation()
@@ -13,17 +14,17 @@ function OperationItem({ operation, setOperationSelected }) {
 	return (
 		<div className="flex my-2 py-2 text-left w-full x justify-between items-center ">
 			<div>
-				<p>{operation.concept}</p>
+				<p className="text-lg">{operation.concept}</p>
 				<p className="text-sm text-dark-50">{formatDate(operation.date)}</p>
 			</div>
 			<div className="text-center flex">
 				<p className={clsx("font-bold text-lg rounded py-1 px-2", bool ? "bg-green-300 text-green-600" : "bg-red-300 text-red-700")}>{(bool ? "+" : "-") + operation.amount}</p>
 				<Menu as="div" className="relative inline-block text-left">
 					<Menu.Button className="flex justify-center w-full px-4 py-2 text-sm font-medium text-dark-600 rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none ">
-						...
+						<Dots />
 					</Menu.Button>
 
-					<Menu.Items className="absolute right-8 bottom-[-0.25rem] w-auto origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg focus:outline-none">
+					<Menu.Items className="absolute right-8 bottom-[-0.25rem] w-auto origin-top-right bg-light-300 divide-y divide-gray-200 rounded-md shadow-lg shadow-gray-400 focus:outline-none">
 						<div className="p-1 ">
 							<Menu.Item>
 								<button
