@@ -1,33 +1,32 @@
 GET http://localhost:4000/api/operations/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhLWQ5MDUtNGZmNy04YWJjLTQzOWYzMTI4ZTIyZSIsIm5hbWUiOiJDYXJsb3MiLCJpYXQiOjE2NDU0MTQ2NDcsImV4cCI6MTY0NjAxOTQ0N30.nAjmNe1clYqR3hy6-TLtAHzjyMIc0-f-gq7fLArHiNo
+Authorization: JWT_TOKEN
 
 ###
 GET http://localhost:4000/api/operations/?limit=5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhY2EiLCJpZCI6ImM3ZmMzNThhLTkzYjAtNGFkYS1hZWIxLTQxYWM0NGY1OWMwOSIsImlhdCI6MTY0NTU3NDU4NywiZXhwIjoxNjQ2MTc5Mzg3fQ.Fd-AbxiUZqxQ6PBskif8gorJx_RuQdNfnnq65Dazer8
+Authorization: JWT_TOKEN
 
 ###
 POST http://localhost:4000/api/operations/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM4NjI4NDBiLTM0NDEtNGNhZC04ZjczLWQxMzY5ZDM3Y2Y0NyIsIm5hbWUiOiJDYXJsb3MiLCJpYXQiOjE2NDU1MDAzMzYsImV4cCI6MTY0NjEwNTEzNn0.rZFLsNXYTF9SdwnBeZTdqWSz3dMwoblHH_5NsvYIdz4
+Authorization: JWT_TOKEN
 
 {
-   "id": "2415dc1e-2ad3-4904-bc56-7bd1aed781b3",
-   "concept": "Preste plata a dani 3",
+   "concept": "Devolvi dinero a Juan",
    "amount": 750,
    "type": "exit",
-   "category": "Music"
+   "category": "Cajeros"
 }
 
 ###
 PATCH http://localhost:4000/api/operations/ff141684-612d-4e9c-aad6-729ca1342e3e
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhLWQ5MDUtNGZmNy04YWJjLTQzOWYzMTI4ZTIyZSIsIm5hbWUiOiJDYXJsb3MiLCJpYXQiOjE2NDU0MTQ2NDcsImV4cCI6MTY0NjAxOTQ0N30.nAjmNe1clYqR3hy6-TLtAHzjyMIc0-f-gq7fLArHiNo
+Authorization: JWT_TOKEN
 
 {
-   "category": "Platita"
+   "category": "Restaurantes"
 }
 
 ###
 DELETE http://localhost:4000/api/operations/0e90a550-517b-4e85-81ca-37abeb9796b5
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZmNDM1NjZhLWQ5MDUtNGZmNy04YWJjLTQzOWYzMTI4ZTIyZSIsIm5hbWUiOiJDYXJsb3MiLCJpYXQiOjE2NDU0MTQ2NDcsImV4cCI6MTY0NjAxOTQ0N30.nAjmNe1clYqR3hy6-TLtAHzjyMIc0-f-gq7fLArHiNo
+Authorization: JWT_TOKEN
