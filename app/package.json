@@ -13,10 +13,12 @@
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.27.1",
     "swr": "^1.2.2",
+    "vite-plugin-svgr": "^1.1.0",
     "wouter": "^2.8.0-alpha.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
+    "@windicss/plugin-scrollbar": "^1.2.3",
     "vite": "^2.8.0",
     "vite-plugin-windicss": "^1.7.1",
     "windicss": "^3.4.3"
