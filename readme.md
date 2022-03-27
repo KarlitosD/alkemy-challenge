@@ -3,6 +3,7 @@
 ## Servidor
 El servidor esta hecho usando *Node*, *Typescript*, *Express* y *Sequelize*.
 ```bash
+	npm install
 	cd api
 	npm run build
 	npm run start
