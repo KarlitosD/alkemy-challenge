@@ -5,7 +5,7 @@ import { Dialog } from "@headlessui/react"
 import { useOperation } from "../contexts/OperationsContext"
 import OptionsCategories from "./OptionsCategories"
 
-function EditOperationModal({ operationSelected: operation, setOperationSelected }) {
+function ModalEditOperation({ operationSelected: operation, setOperationSelected }) {
 	const { handleSubmit, register } = useForm()
 	const { updateOperation } = useOperation()
 
@@ -40,4 +40,4 @@ function EditOperationModal({ operationSelected: operation, setOperationSelected
 	)
 }
 
-export default EditOperationModal
+export default ModalEditOperation

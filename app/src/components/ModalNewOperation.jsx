@@ -5,7 +5,7 @@ import OptionsCategories from "./OptionsCategories"
 import { useOperation } from "../contexts/OperationsContext"
 import clsx from "../utils/clsx"
 
-function NewOperationModal({ isOpenModal, setIsOpenModal }) {
+function ModalNewOperation({ isOpenModal, setIsOpenModal }) {
 	const [enabled, setEnabled] = useState(false)
 	const { handleSubmit, register, reset } = useForm()
 
@@ -57,4 +57,4 @@ function NewOperationModal({ isOpenModal, setIsOpenModal }) {
 	)
 }
 
-export default NewOperationModal
+export default ModalNewOperation
