@@ -7,7 +7,7 @@ function Header() {
 	const { deleteToken } = useToken()
 
 	return (
-		<header className="border-b flex justify-between items-center border-gray-500 py-3 px-10 ">
+		<header className="border-b flex justify-between items-center border-gray-500 py-3 px-6 md:px-10 ">
 			<img src="src/assets/alkemyLogo.2daef856.svg" alt="Alkemy logo" />
 			<Menu as="div" className="relative inline-block text-left">
 				<Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium border bg-gray-100 text-blue-700 rounded-md hover:(bg-opacity-30 shadow)">
