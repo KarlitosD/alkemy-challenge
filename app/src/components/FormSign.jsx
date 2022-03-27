@@ -1,6 +1,6 @@
 import React from "react"
 import { useForm } from "react-hook-form"
-
+import { API_URL } from "../config"
 import useToken from "../hooks/useToken"
 import Button from "./Primitives/Button"
 
@@ -11,7 +11,7 @@ function FormSign({ inputs, operation }) {
 	const { saveToken } = useToken()
 
 	const onSubmit = async data => {
-		const res = await fetch("http://localhost:4000/api/auth/" + operation, {
+		const res = await fetch(`${API_URL}/auth/${operation}`, {
 			method: "POST",
 			headers: { "content-type": "application/json" },
 			body: JSON.stringify(data)

@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useMemo } from "react"
 import useSWR from "swr"
 
+import { API_URL } from "../config"
 import useToken from "../hooks/useToken"
 
 const fetcher = (...data) => {
@@ -16,7 +17,7 @@ export const OperationsContext = createContext(null)
 
 const OperationsProvider = ({ children }) => {
 	const { token } = useToken()
-	const { data: operations, mutate } = useSWR(["http://localhost:4000/api/operations/", {
+	const { data: operations, mutate } = useSWR([API_URL + "/operations/", {
 		mode: "cors",
 		headers: {
 			"Authorization": token
@@ -32,7 +33,7 @@ const OperationsProvider = ({ children }) => {
 
 	const addOperation = async ({ enabled, data }) => {
 		mutate(async () => {
-			const newOperation = await fetcher("http://localhost:4000/api/operations/", {
+			const newOperation = await fetcher(API_URL + "/operations/", {
 				method: "POST",
 				mode: "cors",
 				headers: {
@@ -52,7 +53,7 @@ const OperationsProvider = ({ children }) => {
 	const deleteOperation = async id => {
 		const operationsFiltered = operations.filter(operation => operation.id !== id)
 		mutate(operationsFiltered, { revalidate: false })
-		await fetcher(`http://localhost:4000/api/operations/${id}`, {
+		await fetcher(`${API_URL}/operations/${id}`, {
 			method: "DELETE",
 			mode: "cors",
 			headers: {
@@ -68,7 +69,7 @@ const OperationsProvider = ({ children }) => {
 		copyOperations.sort((a, b) => new Date(b.date) - new Date(a.date))
 		mutate(copyOperations, { revalidate: false })
 
-		await fetcher(`http://localhost:4000/api/operations/${id}`, {
+		await fetcher(`${API_URL}/operations/${id}`, {
 			method: "PATCH",
 			mode: "cors",
 			headers: {
